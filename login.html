@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Welcome Back</title>
+    <link rel="stylesheet" href="/css-file/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="header">Welcome back</h2>
+        <p class="subtitle">Welcome back! Please enter your details.</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" id="email" name="Email Address" placeholder="Enter your email id" required>
+                <div class="error-message" id="emailError">Please enter a valid User ID</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <a href="#" class="forgot-link">Forgot password?</a>
+                <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <div class="divider">or continue with</div>
+
+        <div class="social-buttons">
+            <button class="social-button" type="button"><a href="google.html">Google</a></button>
+            <button class="social-button" type="button"><a href="google.html">GitHub</a></button>
+        </div>
+
+        <p class="signup-text">Don't have an account? <a href="singup.html">Sign up for free</a></p>
+    </div>
+    <script src="js-file/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+body{
+    background: url("/images-file/get-started-background.jpg") no-repeat center/cover;
+    color: black;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== NAVBAR ===== */
+.nav-bar {
+  background: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+/* ===== LOGO ===== */
+.nav-icon-box {
+  padding: 5px 10px;
+  color: black;
+  font-weight: bold;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-link {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #94a3b8;
+  transition: 0.3s;
+}
+
+.nav-link a:hover {
+  color: black;
+}
+
+/* ===== BUTTON ===== */
+.nav-btn button {
+  background: linear-gradient(135deg, #3496d3, #10aeb9);
+  color: black;
+  border: none;
+  border-radius: 25px;
+
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.nav-btn button a {
+  text-decoration: none;
+  color: black;
+}
+    
+
+.nav-btn button:hover {
+  box-shadow: 0 8px 15px rgba(52, 153, 211, 0.3);
+  transform: translateY(-2px);
+}
+
+
+.nav-btn button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.hero-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    background: none;
+}
+
+.hero-heading {
+    max-width: 1200px;
+    text-align: center;
+}
+
+.hero-heading h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.hero-heading p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.btn-box{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.btn{
+    width: 120px;
+    height: 42px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.join-btn{
+    background-color: black;
+    color: white;
+}
+
+.join-btn i,
+.join-btn a {
+    color: inherit !important;
+}
+
+.join-btn a {
+    text-decoration: none !important;
+}
+
+.join-btn:hover{
+    background-color: white;
+    color: black;
+    text-decoration-color: black;
+}
+
+.login-btn{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.login-btn i,
+.login-btn a {
+    color: inherit !important;
+}
+
+.login-btn a {
+    text-decoration: none !important;
+}
+
+.login-btn:hover{
+    background-color:black;
+    color: white;
+}
+
+.cards-box{
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 350px;
+    height: 400px;
+    transition: all 0.4s ease;
+}
+
+/* Hover effect */
+.card:hover{
+    border: 2px solid lightseagreen;
+    transform: translateY(-12px); 
+    box-shadow: 0 20px 40px rgba(32, 178, 170, 0.25); 
+}
+
+.card p{
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.c-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.c-btn button{
+    background-color: black;
+    color: white;
+
+}
+
+.c-btn a{
+  color: white;
+  text-decoration: none;
+}
+
+.footer-container{
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.footer-container p{
+  color: #94a3b8;
+}

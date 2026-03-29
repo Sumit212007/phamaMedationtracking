@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Medicine Authenticity Dashboard</title>
+<link rel="stylesheet" href="css-file/manufacture.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════ -->
+<nav>
+  <div class="nav-brand">
+    <div class="icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6L12 2z"/></svg>
+    </div>
+    <span>Medicine Authenticity</span>
+  </div>
+
+  <div class="nav-search">
+    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" placeholder="Search products, batches, manufacturers…"/>
+  </div>
+
+  <div class="nav-actions">
+    <button class="btn btn-primary">
+      Add Account
+    </button>
+    <button class="btn btn-outline">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Profile
+    </button>
+    <div class="avatar">WF</div>
+  </div>
+</nav>
+
+<!-- ═══ BODY ══════════════════════════════════════════ -->
+<div class="layout">
+
+  <!-- ─── SIDEBAR ────────────────────────────────── -->
+  <aside>
+    <div class="sidebar-label">Menu</div>
+
+    <button class="nav-item active" onclick="setActive(this)">
+      <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </button>
+
+    <button class="nav-item" onclick="setActive(this)">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Update Order
+    </button>
+
+    <button class="nav-item" onclick="setActive(this)">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg>
+      See all orders
+    </button>
+
+    <button class="nav-item" onclick="setActive(this)">
+      <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Order Status
+    </button>
+
+    <button class="nav-item" onclick="setActive(this)">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Add Manufacturer
+    </button>
+
+    <div class="sidebar-label">System</div>
+
+    <button class="nav-item" onclick="setActive(this)">
+      <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+      Settings
+    </button>
+  </aside>
+
+  <!-- ─── MAIN ────────────────────────────────────── -->
+  <main>
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <div class="page-title">Warehouse Dashboard</div>
+        <div class="page-subtitle">Track and verify your medicine supply chain</div>
+      </div>
+      <button class="btn btn-primary">
+        <svg viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New Entry
+      </button>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Total Products</div>
+        <div class="stat-value">00</div>
+        <div class="stat-change">Current</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Manufacturers</div>
+        <div class="stat-value">00</div>
+        <div class="stat-change">Current</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pending Requests</div>
+        <div class="stat-value">00</div>
+        <div class="stat-change down">3 awaiting review</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Warehouses</div>
+        <div class="stat-value">00</div>
+        <div class="stat-change">Current</div>
+      </div>
+    </div>
+
+    <!-- Row 1: Products + Manufacturers + Requests -->
+    <div class="grid-3">
+
+      <!-- A. Products -->
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg>
+            List Products
+            <button class="btn-add" id="removeProductBtn">Remove</button>
+          </div>
+          <span class="badge" id="productCount">3</span>
+        </div>
+        <div class="section-body" id="productList">
+          <div class="list-item selected">
+            <div class="item-icon icon-blue">
+              <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Amoxicillin 500mg</div>
+              <div class="item-meta">Batch #AX-2024-001</div>
+            </div>
+            <span class="item-status status-verified">Verified</span>
+          </div>
+          <div class="list-item">
+            <div class="item-icon icon-green">
+              <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Paracetamol 250mg</div>
+              <div class="item-meta">Batch #PC-2024-007</div>
+            </div>
+            <span class="item-status status-verified">Verified</span>
+          </div>
+          <div class="list-item">
+            <div class="item-icon icon-amber">
+              <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Ibuprofen 400mg</div>
+              <div class="item-meta">Batch #IB-2024-013</div>
+            </div>
+            <span class="item-status status-pending">Pending</span>
+          </div>
+        </div>
+        <div class="section-footer">
+          <button class="btn-add" id="addProductBtn">
+            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Product
+          </button>
+        </div>
+      </div>
+
+      <!-- B. Manufacturers -->
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Manufacturers
+            <button class="btn-add" id="removeManufacturerBtn">Remove</button>
+          </div>
+          <span class="badge" id="productCount">2</span>
+        </div>
+        <div class="section-body" id="manufacturerList">
+          <div class="list-item">
+            <div class="item-icon icon-blue">
+              <svg viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8L2 7h20l-6-4z"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">PharmaCorp Ltd.</div>
+              <div class="item-meta">MFG-001 · Delhi, IN</div>
+            </div>
+            <span class="item-status status-verified">Active</span>
+          </div>
+          <div class="list-item">
+            <div class="item-icon icon-green">
+              <svg viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8L2 7h20l-6-4z"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">MediGen Solutions</div>
+              <div class="item-meta">MFG-002 · Mumbai, IN</div>
+            </div>
+            <span class="item-status status-verified">Active</span>
+          </div>
+        </div>
+        <div class="section-footer">
+          <button class="btn-add" id="addManufacturerBtn">
+            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Manufacturer
+          </button>
+        </div>
+      </div>
+
+      <!-- C. Requests -->
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Requests
+          </div>
+          <span class="badge badge-amber">7</span>
+        </div>
+        <div class="req-row">
+          <div class="req-card">
+            <div class="req-label">Pending</div>
+            <div class="req-number">04</div>
+            <div class="req-sub">Awaiting action</div>
+            <div class="req-bar"><div class="req-fill fill-amber"></div></div>
+          </div>
+          <div class="req-card">
+            <div class="req-label">Join Pharmacy</div>
+            <div class="req-number">03</div>
+            <div class="req-sub">New applications</div>
+            <div class="req-bar"><div class="req-fill fill-accent"></div></div>
+          </div>
+        </div>
+        <div style="padding: 0 8px 4px;">
+          <div class="list-item">
+            <div class="item-icon icon-amber">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">MedPlus Pharmacy</div>
+              <div class="item-meta">Submitted 2h ago</div>
+            </div>
+            <span class="item-status status-pending">Pending</span>
+          </div>
+          <div class="list-item">
+            <div class="item-icon icon-red">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Apollo Stores</div>
+              <div class="item-meta">Needs review</div>
+            </div>
+            <span class="item-status status-review">Review</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Warehouses + Pharma Companies -->
+    <div class="grid-2" id="productCount">
+
+      <!-- D. Warehouses -->
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Warehouse
+            <button class="btn-add" id="removeWarehouseBtn">Remove</button>
+          </div>
+          <span class="badge">2</span>
+        </div>
+        <div class="section-body" id="warehouseList">
+          <div class="list-item">
+            <div class="item-icon icon-blue">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Warehouse 1 — North Zone</div>
+              <div class="item-meta">WH-001 · Capacity: 85%</div>
+            </div>
+            <span class="item-status status-verified">Active</span>
+          </div>
+          <div class="list-item">
+            <div class="item-icon icon-green">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Warehouse 2 — South Zone</div>
+              <div class="item-meta">WH-002 · Capacity: 62%</div>
+            </div>
+            <span class="item-status status-verified">Active</span>
+          </div>
+        </div>
+        <div class="section-footer">
+          <button class="btn-add" id="addWarehouseBtn">
+            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Warehouse
+          </button>
+        </div>
+      </div>
+
+      <!-- E. Pharmaceutical Companies -->
+      <div class="section-card">
+        <div class="section-head">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Category
+            <button class="btn-add" id="removePharmaBtn">Remove</button>
+          </div>
+          <span class="badge">2</span>
+        </div>
+        <div class="section-body" id="pharmaceuticalList">
+          <div class="list-item">
+            <div class="item-icon icon-blue">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Pharma Company 1 — Sun Pharma</div>
+              <div class="item-meta">PC-001 · NSE Listed · Active</div>
+            </div>
+            <span class="item-status status-verified">Verified</span>
+          </div>
+          <div class="list-item">
+            <div class="item-icon icon-green">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+            </div>
+            <div class="item-info">
+              <div class="item-name">Pharma Company 2 — Cipla Ltd.</div>
+              <div class="item-meta">PC-002 · BSE Listed · Active</div>
+            </div>
+            <span class="item-status status-verified">Verified</span>
+          </div>
+        </div>
+        <div class="section-footer">
+          <button class="btn-add" id="addPharmaBtn">
+            <svg viewBox="0 0 24 24" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Company
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js-file/dashboard.js"></script>
+</body>
+</html>

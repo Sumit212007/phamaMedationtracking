@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mediation-verification</title>
+    <link rel="stylesheet" href="/css-file/mediation-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+    <div class="container">
+        <div class = "nav-bar">
+            <div class="nav-icon-box">
+                <h4><i class="fa-solid fa-capsules"></i> Medicine Authenticity</h4>
+            </div>
+            <div class="nav-link-box">
+                <ul class="nav-link">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mediation-verification.html">QR Scan</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="nav-btn">
+                <button><a onclick="openScanner()">Start Camera</a></button>
+            </div>
+        </div>
+        <div class="hero-header">
+            <h2>Verify Medicine Authenticity</h2>
+            <p>Scan QR codes or verify by details to confirm authenticity. This UI is built with HTML, CSS, and a little JavaScript.</p>
+        </div>
+        <div class="hero-features-box">
+            <div class="hero-features">
+                <div class="box qr-scanner">
+                    <h3>Scan QR Code</h3>
+                    <div class="qr-image">
+                        <img src="/images-file/QR-Code.png" alt="QR-icon">
+                    </div>
+                    <div class="btn">
+                        <!-- Scan Button -->
+                        <button class="qr-btn" onclick="openScanner()">Scan QR</button>                     
+                    </div>
+                </div>
+                <div class="box manual">
+                    <div class="header-clear-box">
+                        <h3>Manual Verification</h3>
+                        <button>Clear</button>
+                    </div>
+                    <p>Enter details (batch, manufacturer, expiry)
+                        <br> and verify authenticity.</p>
+                    <form class="form-data">
+
+                        <label for="batch">Batch / Serial</label><br>
+                        <input type="text" id="batch" name="batch" placeholder="e.g. BATCH-28A-9021"><br>
+
+                        <label for="manufacturer">Manufacturer</label><br>
+                        <input type="text" id="manufacturer" name="manufacturer" placeholder="e.g. Medical Labs"><br>
+
+                        <label for="expiry">Expiry</label><br>
+                        <input type="month" id="expiry" name="expiry"><br>
+
+                        <small>Tip: try “08/2028” to see a success result.</small><br>
+
+                        <div class="submit-btn">
+                            <button type="submit">Verify Medicine</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-data-box">
+            <div class="container2">
+                <!-- Top Info Cards -->
+                <div class="top-cards">
+                    <div class="card">
+                        <p>Medicine</p>
+                        <h3 id="med-name">---</h3>
+                    </div>
+                    <div class="card">
+                        <p>Serial Number</p>
+                        <h3 id="med-stock">---</h3>
+                    </div>
+                    <div class="card">
+                        <p>Batch</p>
+                        <h3 id="med-batch">---</h3>
+                    </div>
+                    <div class="card">
+                        <p>Expiry</p>
+                        <h3 id="med-expiry">---</h3>
+                    </div>
+                </div>
+                <!-- Bottom Section -->
+                <div class="bottom-section">
+                    <!-- Medicine -->
+                    <div class="info-box">
+                        <h3>Medicine</h3>
+
+                        <div class="row">
+                            <span>Manufacturer</span>
+                            <span id="med-manufacturer">-/-</span>
+                        </div>
+
+                        <div class="row">
+                            <span>Country</span>
+                            <span id="med-country">-/-</span>
+                        </div>
+
+                        <div class="row">
+                            <span>Regulator</span>
+                            <span id="med-regulator">-/-</span>
+                        </div>
+                    </div>
+                    <!-- Security -->
+                    <div class="info-box">
+                        <h3>Security</h3>
+
+                        <div class="row">
+                            <span>QR signature</span>
+                            <span id="med-security">-/-</span>
+                        </div>
+
+                        <div class="row">
+                            <span>Supply chain</span>
+                            <span id="med-supply">-/-</span>
+                        </div>
+
+                        <div class="row">
+                            <span>Risk</span>
+                            <span id="med-risk" class="low">-/-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Qr scan popup don't change any think  -->
+        <div id="scannerModal" class="modal">
+            <div class="modal-content">
+
+                <span class="close" onclick="closeScanner()">&times;</span>
+
+                <h2>Scan Medicine QR</h2>
+
+                <div class="mobile-frame">
+                    <div id="reader"></div>
+                </div>
+
+                <div class="controls">
+                    <button onclick="stopScanner()">Stop</button>
+                    <button onclick="retryScanner()">Retry</button>
+                </div>
+
+                <p id="result"></p>
+
+            </div>
+        </div>
+    </div>
+    <footer class="footer-container">
+        <p>Medicine Authenticity Verification System</p>
+        <p>© 2026 · Protecting patient safety worldwide</p>
+    </footer>
+    <script src="/js-file/update-data.js"></script>
+    <script src="/js-file/Qr-scanner.js"></script>
+</body>
+</html>

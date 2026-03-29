@@ -1,0 +1,16 @@
+body{
+    background-color: bisque;
+}
+
+.border{
+    border: 2px solid black;
+}
+
+.container{
+    border: 2px solid black;
+    padding: 15px 15px;
+}
+
+.icon{
+    
+}
